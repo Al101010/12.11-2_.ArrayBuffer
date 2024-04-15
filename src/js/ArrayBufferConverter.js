@@ -1,13 +1,18 @@
 export default class ArrayBufferConverter {
     constructor() {
-        this.bufferConverter = null;
+        this.bufferContainer = null;
     }
     
     load(buffer) {
-        this.bufferConverter = new  Uint16Array(buffer);
+        this.bufferContainer = new  Uint16Array(buffer);
     }
 
     toString() {
-        return [...this.bufferContainer];
+        const arr = [];
+        this.bufferContainer.forEach(function(item) {
+            arr.push(item);
+        });
+
+        return arr;
     }
 }
